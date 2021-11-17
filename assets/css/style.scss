@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@200;400;700&display=swap');
+
+$white: #fff;
+$gray-400: #707070;
+$gray-500: #434343;
+$gray-900: #0e0e0e;
+
+body{
+      background-color: $gray-900;
+      font-family: 'Montserrat', sans-serif;
+      color: $gray-400;
+}    
+
+h1, h2{
+      text-align: center;
+      text-transform: uppercase;
+      font-family: 'Lato', sans-serif;
+      margin-bottom: 4vh;
+}
+
+h1{
+      margin-top: 7vh;
+      color: $white;
+      position: relative;
+      font-weight: 700;
+
+      &::after{
+            content: "";
+            background-color: currentColor;
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            bottom: -0.4rem;
+            left: 50%;
+            transform: translateX(-50%);
+      }
+}
+h2{
+      font-weight: 400;
+      color: $white;
+}
+
+#contact{
+      margin: 0 auto;
+      width: 90%;
+
+      form{
+            display: flex;
+            flex-direction: column;
+
+            div{
+                  display: flex;
+                  flex-direction: column;
+                  margin-bottom: 1rem;
+
+                  label{
+                        margin-bottom: 0.5rem;
+                  }
+                  // reset
+                  select{
+                        margin: 0;      
+                        -webkit-box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+                        -webkit-appearance: none;
+                        -moz-appearance: none; 
+                  }
+                  select.round {
+                        text-align: center;
+                        color: $white;
+                        background-image:
+                              linear-gradient(45deg, transparent 50%, gray 50%),
+                              linear-gradient(135deg, gray 50%, transparent 50%),
+                              radial-gradient(#ddd 70%, transparent 72%);
+                        background-position:
+                              calc(98% - 16px) calc(1em + 2px),
+                              calc(98% - 11px) calc(1em + 2px),
+                              calc(98% - .5em) .5em;
+                        background-size:
+                              5px 5px,
+                              5px 5px,
+                              1.5em 1.5em;
+                        background-repeat: no-repeat;
+                  }
+                  
+                  select.round:focus {
+                        background-image:
+                              linear-gradient(45deg, white 50%, transparent 50%),
+                              linear-gradient(135deg, transparent 50%, white 50%),
+                              radial-gradient(gray 70%, transparent 72%);
+                        background-position:
+                              calc(100% - 11px) 1em,
+                              calc(100% - 16px) 1em,
+                              calc(100% - .5em) .5em;
+                        background-size:
+                              5px 5px,
+                              5px 5px,
+                              1.5em 1.5em;
+                        background-repeat: no-repeat;
+                  }
+                  textarea{
+                        height: 12vh;
+                  }
+            }
+            .nameContent, .identityContent, .subtitleContent{
+                  margin-bottom: 0;
+            }
+            input, select, textarea{
+                  padding: 0.2vh 1vw;
+                  background-color: $gray-500;
+                  border: 1px solid $gray-400;
+                  border-radius: 3px;
+                  height: 4vh;
+                  resize: none;
+                  color: $white;
+
+                  &::placeholder {
+                        color: $white;
+                        background-color: #dd3535;
+                  }
+
+                  &:focus{
+                        outline: 0;
+                        border-color: royalblue;
+                  }
+            }
+            input[type=submit] {
+                  margin: 3vh auto 0;
+                  width: 85%;
+                  color: $white;
+
+                  &:hover{
+                        opacity: 0.6;
+                        transition-duration: 0.6s;
+                  }
+            }
+      }
+}
+
+footer{
+      margin: 3rem auto 0;
+      width: 80%;
+      
+      ul{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+
+            li{
+                  position: relative;
+                  margin-bottom: 3rem;
+
+                  a{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-80%, -50%);
+                        color: inherit;
+                        text-decoration: inherit;
+                        transition-duration: 0.4s;
+
+                        &:hover{
+                              color: RoyalBlue;
+                              transition-duration: 0.6s;
+                        }
+                  }
+            }
+      }
+}
+
+@media only screen and (min-width: 470px) {
+      #contact{
+            width: 70%;
+      }
+}
+@media only screen and (min-width: 700px) {
+      #contact{
+            width: 60%;
+      }
+}
+@media only screen and (min-width: 1000px) {
+      #contact{
+            width: 55%;
+
+            div{
+                  display: flex;
+                  flex-direction: row;
+                  flex-wrap: wrap;
+                  margin-bottom: 1rem;
+            }
+            .nameContent, .identityContent, .subtitleContent{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: space-between;
+                  
+                  div{
+                        width: 47.5%;
+                  }
+            }
+            form input[type=submit] {
+                  width: 70%;
+            }
+      }
+      
+      footer{
+            margin: 3rem auto 0;
+            width: 45%;
+            
+            ul{
+                  margin-right: 3.5vw;
+                  flex-direction: row;
+                  justify-content: space-between;
+
+                  li{
+                        position: relative;
+      
+                        a{
+                              position: inherit;
+                              transition-duration: 0.4s;
+                              top: 0;
+                              left: 0;
+                              transform: translate(0, 0) !important;
+      
+                              &:hover{
+                                    color: RoyalBlue;
+                                    transition-duration: 0.6s;
+                              }
+                        }
+                  }
+            }
+      }
+}
+
+@media only screen and (min-width: 1500px) {
+      #contactSection{
+            margin-top: -5vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            & > * {
+                  flex: 1 1 35%;
+                  padding: 5%;
+            }
+      }
+      #contact{
+            width: 60%;
+      }
+      #contactImage1, #contactImage2{
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-size: 70%;
+            background-position: center;
+      }
+      #contactImage1{
+            background-image: url(../storage/undraw_folder_files_re_2cbm.svg);
+      }
+      #contactImage2{
+            background-image: url(../storage/undraw_message_sent_re_q2kl.svg);
+      }
+      footer{
+            margin-top: -3vh;
+      }
+}

@@ -34,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = ($_POST['subject']);
     $message = ($_POST['message']);
 
-    // todo if $session 1-5 = error 
     if(isset($_SESSION) && !empty($_SESSION)) {
         header('location:index.php');
     }else{
@@ -68,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->send();
             
             $message = 'Your Email has been shipped !';
-            handleSuccess($message);
+            handleMessage($message);
 
             header('location:index.php');
         } catch (Exception $e) {
@@ -85,6 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $input = stripslashes($input);
                 $input = htmlspecialchars($input);
                 $input = utf8_decode($input);
+                handleSuccess($field, $input);
                 return $input; 
             }
             else { 
@@ -94,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         if( $type == 'email' ){
             if(filter_var($input, FILTER_VALIDATE_EMAIL) !== false) {
+                handleSuccess($field, $input);
                 return $input;
             }
             else { 
@@ -120,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    function handleSuccess($message){
+    function handleMessage($message){
 
         $_SESSION['success']="$message";
         
@@ -129,6 +130,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     function handleError($field, $message ){
         $errorName = 'error'.$field;
         $_SESSION[$errorName]="$message";
+    }
+
+    function handleSuccess($field, $message ){
+        $successName = 'success'.$field;
+        $_SESSION[$successName]="$message";
     }
 
     function clearSession(){

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Readme</title>
+</head>
+<body>
+      <style>
+            * {
+                  box-sizing: border-box;
+            }
+            #grid {
+                  display: grid; 
+                  grid-template-columns: 1fr 1fr 1fr; 
+                  grid-template-rows: 16vh 16vh 16vh 16vh 16vh 16vh; 
+                  gap: 0px 0px; 
+                  grid-template-areas: 
+                  ". . ."
+                  ". . ."
+                  ". . ."
+                  ". . ."
+                  ". . ."
+                  ". . ."; 
+            }
+            #c1 {
+                  grid-column: 1 / 4;
+                  grid-row: 1 / 2;
+            }
+            #c2 {
+                  grid-column: 1 / 2;
+                  grid-row: 2 / 7;
+            }
+            #c3 {
+                  grid-column: 2 / 4;
+                  grid-row: 2 / 7;
+            }
+            
+            @media (max-width: 700px) {
+                  #c2 {
+                        grid-column: 1 / 4;
+                        grid-row: 2 / 4;
+                  }
+                  #c3 {
+                        grid-column: 1 / 4;
+                        grid-row: 4 / 7;
+                  }
+            }
+      </style>
+      <div id="grid">
+
+            <div id="c1">
+                  Container 1
+            </div>
+            
+            <div id="c2">
+                  Container 2
+            </div>
+                  
+            <div id="c3">
+                  Container 3
+            </div>
+      </div>
+</body>
+</html>

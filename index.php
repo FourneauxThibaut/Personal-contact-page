@@ -130,7 +130,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
                 if(isset($_SESSION['success'])) { 
             ?>
                 <section id="contactImage2">
-            <?php } else { ?>
+            <?php unset($_SESSION["success"]); } else { ?>
                 <section id="contactImage1">
             <?php } ?>
             </section>

@@ -16,6 +16,13 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 <body>
     <header>
         <h1>Thibaut Fourneaux</h1>
+        <?php 
+            if(isset($_SESSION['success'])) { 
+        ?>
+        <div class="success">
+            <?php echo $_SESSION["success"] ?>
+        </div>
+        <?php } ?>
     </header>
     <main>
         <section id="contactSection">
@@ -119,8 +126,13 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
                     <input type="submit" value="Submit">
                 </form>
             </section>
-            <section id="contactImage1">
-
+            <?php 
+                if(isset($_SESSION['success'])) { 
+            ?>
+                <section id="contactImage2">
+            <?php } else { ?>
+                <section id="contactImage1">
+            <?php } ?>
             </section>
         </section>
     </main>

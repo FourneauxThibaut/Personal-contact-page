@@ -24,7 +24,6 @@
 │     └──  <a href="#instructions">Instructions</a>
 │     └──  <a href="#built-with">Built With</a>
 │
-├──  <a href="#usage">Usage</a>
 ├──  <a href="#roadmap">Roadmap</a>
 └──  <a href="#contact">Contact</a>
 </pre>
